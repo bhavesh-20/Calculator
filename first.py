@@ -5,8 +5,11 @@ root.title("Calculator")
 root.geometry("300x300")
 expression=StringVar()
 
-frame = Frame(root)
-frame.pack(side=TOP)
+frame = Frame(root,highlightbackground="Black",width=300,height=50,highlightcolor="Black")
+frame.pack()
+
+bottom_frame = Frame(root,highlightbackground="Black",width=300,height=50,highlightcolor="Black")
+bottom_frame.pack()
 
 def general_click(item):
     global expression
@@ -31,41 +34,43 @@ def equalto():
 expression=""
 display = StringVar()
 display.set(expression)
-entry_field = Entry(frame,textvariable=display,width=10,bd=0)
+entry_field = Entry(frame,textvariable=display,width=300,bd=0,bg="Grey",fg="White",font=("arial",18,"bold"))
 
 #row 1
 
-ac = Button(root, text="AC", command=clear)
-div = Button(root, text="/", command=partial(general_click,"/"))
-mul = Button(root, text="*", command=partial(general_click,"*"))
-sub = Button(root, text="-", command=partial(general_click,"-"))
+ac = Button(bottom_frame, text="AC", command=clear)
+div = Button(bottom_frame, text="/", command=partial(general_click,"/"))
+mul = Button(bottom_frame, text="*", command=partial(general_click,"*"))
+sub = Button(bottom_frame, text="-", command=partial(general_click,"-"))
 
 #row 2
 
-seven = Button(root, text="7", command=partial(general_click,"7"))
-eight = Button(root, text="8", command=partial(general_click,"8"))
-nine = Button(root, text="9", command=partial(general_click,"9"))
-add = Button(root, text="+", command=partial(general_click,"+"))
+seven = Button(bottom_frame, text="7", command=partial(general_click,"7"))
+eight = Button(bottom_frame, text="8", command=partial(general_click,"8"))
+nine = Button(bottom_frame, text="9", command=partial(general_click,"9"))
+add = Button(bottom_frame, text="+", command=partial(general_click,"+"))
 
 #row 3
-four = Button(root,text="4",command=partial(general_click,"4"))
-five = Button(root,text="5",command=partial(general_click,"5"))
-six = Button(root,text="6",command=partial(general_click,"6"))
+four = Button(bottom_frame,text="4",command=partial(general_click,"4"))
+five = Button(bottom_frame,text="5",command=partial(general_click,"5"))
+six = Button(bottom_frame,text="6",command=partial(general_click,"6"))
 
 #row 4
 
-one = Button(root, text="1", command=partial(general_click,"1"))
-two = Button(root, text="2", command=partial(general_click,"2"))
-three = Button(root, text="3", command=partial(general_click,"3"))
+one = Button(bottom_frame, text="1", command=partial(general_click,"1"))
+two = Button(bottom_frame, text="2", command=partial(general_click,"2"))
+three = Button(bottom_frame, text="3", command=partial(general_click,"3"))
 
 #row 5
 
-zero = Button(root, text="0", command=partial(general_click,"0"))
-dot = Button(root, text=".", command=partial(general_click,"."))
-equ = Button(root, text="=", command=equalto)
+zero = Button(bottom_frame, text="0", command=partial(general_click,"0"))
+dot = Button(bottom_frame, text=".", command=partial(general_click,"."))
+equ = Button(bottom_frame, text="=", command=equalto)
 
 
-entry_field.grid(column=1,row=0)
+#entry_field.grid(column=0,row=0)
+entry_field.pack(ipady=10)
+"""
 ac.grid(column=0,row=0)
 div.grid(column=0,row=1)
 mul.grid(column=1,row=1)
@@ -83,6 +88,9 @@ three.grid(column=2,row=4)
 zero.grid(column=0,row=5)
 dot.grid(column=1,row=5)
 equ.grid(column=2,row=5)
+"""
+ac.pack(side=RIGHT)
+
 
 root = mainloop()
 
