@@ -32,6 +32,9 @@ sub = Button(root, text="-", command=general_click("-"))
 
 #row 2
 
+four = Button(root,text="4",command=general_click("4"))
+five = Button(root,text="5",command=general_click("5"))
+six = Button(root,text="6",command=general_click("6"))
 
 root = mainloop()
 
