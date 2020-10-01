@@ -30,7 +30,7 @@ div = Button(root, text="/", command=general_click("/"))
 mul = Button(root, text="*", command=general_click("*"))
 sub = Button(root, text="-", command=general_click("-"))
 
-#row 2
+#row 3
 
 four = Button(root,text="4",command=general_click("4"))
 five = Button(root,text="5",command=general_click("5"))
