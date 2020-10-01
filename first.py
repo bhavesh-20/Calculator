@@ -2,7 +2,7 @@ from tkinter import *
 
 root = Tk()
 
-expression=""
+expression=StringVar()
 
 def general_click(item):
     global expression
@@ -21,11 +21,11 @@ def equalto():
     display.set(expression)
 
 
-display = Entry(root, width=10)
-
+display = StringVar()
+entry_field = Entry(root,display,width=10)
 #row 1
 
-ac = Button(root, text="AC", command=clear())
+ac = Button(root, text="AC", command=clear)
 div = Button(root, text="/", command=general_click("/"))
 mul = Button(root, text="*", command=general_click("*"))
 sub = Button(root, text="-", command=general_click("-"))
@@ -37,6 +37,11 @@ eight = Button(root, text="8", command=general_click("8"))
 nine = Button(root, text="9", command=general_click("9"))
 add = Button(root, text="+", command=general_click("+"))
 
+#row 3
+four = Button(root,text="4",command=general_click("4"))
+five = Button(root,text="5",command=general_click("5"))
+six = Button(root,text="6",command=general_click("6"))
+
 #row 4
 
 one = Button(root, text="1", command=general_click("1"))
@@ -47,8 +52,25 @@ three = Button(root, text="3", command=general_click("3"))
 
 zero = Button(root, text="0", command=general_click("0"))
 dot = Button(root, text=".", command=general_click("."))
-equ = Button(root, text="=", command=general_click("="))
+equ = Button(root, text="=", command=equalto)
 
+entry_field.grid(column=0,row=0)
+div.grid(column=0,row=1)
+mul.grid(column=1,row=1)
+sub.grid(column=2,row=1)
+add.grid(column=3,row=1)
+seven.grid(column=0,row=2)
+eight.grid(column=1,row=2)
+nine.grid(column=2,row=2)
+four.grid(column=0,row=3)
+five.grid(column=1,row=3)
+six.grid(column=2,row=3)
+one.grid(column=0,row=4)
+two.grid(column=1,row=4)
+three.grid(column=2,row=4)
+zero.grid(column=0,row=5)
+dot.grid(column=1,row=5)
+equ.grid(column=2,row=5)
 
 root = mainloop()
 
