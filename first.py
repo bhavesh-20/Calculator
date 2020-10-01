@@ -23,7 +23,6 @@ def equalto():
     except:
         expression="ERROR"
     display.set(expression)
-    expression=""
 
 expression=""
 display = StringVar()
