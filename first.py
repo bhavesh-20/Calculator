@@ -1,5 +1,5 @@
 from tkinter import *
-
+from functools import partial
 root = Tk()
 
 expression=StringVar()
@@ -16,45 +16,51 @@ def clear():
 
 def equalto():
     global expression
+    expression=entry_field.get()
     result=eval(expression)
     expression=str(result)
     display.set(expression)
+    expression=""
 
-
+expression=""
 display = StringVar()
-entry_field = Entry(root,display,width=10)
+display.set(expression)
+
 #row 1
 
 ac = Button(root, text="AC", command=clear)
-div = Button(root, text="/", command=general_click("/"))
-mul = Button(root, text="*", command=general_click("*"))
-sub = Button(root, text="-", command=general_click("-"))
+div = Button(root, text="/", command=partial(general_click,"/"))
+mul = Button(root, text="*", command=partial(general_click,"*"))
+sub = Button(root, text="-", command=partial(general_click,"-"))
 
 #row 2
 
-seven = Button(root, text="7", command=general_click("7"))
-eight = Button(root, text="8", command=general_click("8"))
-nine = Button(root, text="9", command=general_click("9"))
-add = Button(root, text="+", command=general_click("+"))
+seven = Button(root, text="7", command=partial(general_click,"7"))
+eight = Button(root, text="8", command=partial(general_click,"8"))
+nine = Button(root, text="9", command=partial(general_click,"9"))
+add = Button(root, text="+", command=partial(general_click,"+"))
 
 #row 3
-four = Button(root,text="4",command=general_click("4"))
-five = Button(root,text="5",command=general_click("5"))
-six = Button(root,text="6",command=general_click("6"))
+four = Button(root,text="4",command=partial(general_click,"4"))
+five = Button(root,text="5",command=partial(general_click,"5"))
+six = Button(root,text="6",command=partial(general_click,"6"))
 
 #row 4
 
-one = Button(root, text="1", command=general_click("1"))
-two = Button(root, text="2", command=general_click("2"))
-three = Button(root, text="3", command=general_click("3"))
+one = Button(root, text="1", command=partial(general_click,"1"))
+two = Button(root, text="2", command=partial(general_click,"2"))
+three = Button(root, text="3", command=partial(general_click,"3"))
 
 #row 5
 
-zero = Button(root, text="0", command=general_click("0"))
-dot = Button(root, text=".", command=general_click("."))
+zero = Button(root, text="0", command=partial(general_click,"0"))
+dot = Button(root, text=".", command=partial(general_click,"."))
 equ = Button(root, text="=", command=equalto)
 
+entry_field = Entry(root,textvariable=display,width=10,bd=0)
+
 entry_field.grid(column=0,row=0)
+ac.grid(column=1,row=0)
 div.grid(column=0,row=1)
 mul.grid(column=1,row=1)
 sub.grid(column=2,row=1)
