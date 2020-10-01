@@ -2,7 +2,11 @@ from tkinter import *
 from functools import partial
 root = Tk()
 root.title("Calculator")
+root.geometry("300x300")
 expression=StringVar()
+
+frame = Frame(root)
+frame.pack(side=TOP)
 
 def general_click(item):
     global expression
@@ -27,6 +31,7 @@ def equalto():
 expression=""
 display = StringVar()
 display.set(expression)
+entry_field = Entry(frame,textvariable=display,width=10,bd=0)
 
 #row 1
 
@@ -59,7 +64,6 @@ zero = Button(root, text="0", command=partial(general_click,"0"))
 dot = Button(root, text=".", command=partial(general_click,"."))
 equ = Button(root, text="=", command=equalto)
 
-entry_field = Entry(root,textvariable=display,width=10,bd=0)
 
 entry_field.grid(column=1,row=0)
 ac.grid(column=0,row=0)
