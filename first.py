@@ -1,7 +1,7 @@
 from tkinter import *
 from functools import partial
 root = Tk()
-
+root.title("Calculator")
 expression=StringVar()
 
 def general_click(item):
@@ -62,8 +62,8 @@ equ = Button(root, text="=", command=equalto)
 
 entry_field = Entry(root,textvariable=display,width=10,bd=0)
 
-entry_field.grid(column=0,row=0)
-ac.grid(column=1,row=0)
+entry_field.grid(column=1,row=0)
+ac.grid(column=0,row=0)
 div.grid(column=0,row=1)
 mul.grid(column=1,row=1)
 sub.grid(column=2,row=1)
