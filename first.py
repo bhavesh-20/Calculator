@@ -17,8 +17,11 @@ def clear():
 def equalto():
     global expression
     expression=entry_field.get()
-    result=eval(expression)
-    expression=str(result)
+    try:
+        result=eval(expression)
+        expression=str(result)
+    except:
+        expression="ERROR"
     display.set(expression)
     expression=""
 
