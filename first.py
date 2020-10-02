@@ -8,12 +8,14 @@ expression=StringVar()
 
 def general_click(item):
     global expression
+    if expression=="0":
+        expression=""
     expression=expression+item
     display.set(expression)
 
 def clear():
     global expression
-    expression=""
+    expression="0"
     display.set(expression)
 
 def equalto():
@@ -36,7 +38,7 @@ def equaltoent(event):
         expression="ERROR"
     display.set(expression)
 
-expression=""
+expression="0"
 display = StringVar()
 display.set(expression)
 root.bind('<Return>',equaltoent)
