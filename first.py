@@ -18,17 +18,7 @@ def clear():
     expression="0"
     display.set(expression)
 
-def equalto():
-    global expression
-    expression=entry_field.get()
-    try:
-        result=eval(expression)
-        expression=str(result)
-    except:
-        expression="ERROR"
-    display.set(expression)
-
-def equaltoent(event):
+def equalto(event="<Button-1>"):
     global expression
     expression=entry_field.get()
     try:
@@ -41,7 +31,7 @@ def equaltoent(event):
 expression="0"
 display = StringVar()
 display.set(expression)
-root.bind('<Return>',equaltoent)
+root.bind('<Return>',equalto)
 
 
 frame = Frame(root,highlightbackground="Black",width=24,height=50,highlightcolor="Black")
